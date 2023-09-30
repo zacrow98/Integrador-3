@@ -1,15 +1,17 @@
 # Trabajo practico integrador N°3 
 
 - 1 [API](#api-TrailerFlix)
-  
-  - 1.1 [Requisitos Previos](#requisitos-previos)
+  - 1.1 [Modelo](#modelo-fisico)
+  - 1.2 [Requisitos Previos](#requisitos-previos)
 
 - 2 [CRUD](#crud)
     - 2.1 [Contenido](#contenido)
         - 2.1.1  [Endpoint](#endpoint-con-sus-metodos)
         - 2.1.2 [Crear nuevo contenido](#crear-nuevo-contenido)
 - 3 [ERRORES](#errores)
-- 
+
+### Modelo Fisico
+![Modelo Fisico](https://i.imgur.com/GmsGjzP.png)
 ### API TrailerFlix.
 
 Esta documentación describe las peticiones de creación (create), lectura (read), actualización (update) y eliminación (delete) disponibles en la API de trailers. Estas peticiones permiten interactuar con elementos existentes en la API, como registros o recursos.

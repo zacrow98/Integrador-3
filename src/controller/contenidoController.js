@@ -1,4 +1,7 @@
 const {contenido, categoria, actores, reparto, genero, generoTitulo} = require('../config/asociaciones')
+const {where} = require("sequelize")
+const {Op} = require("sequelize")
+const Categoria = require('../models/categoria')
 
 //Lista todo el contenido
 const listarContenido = async (req, res) => {
@@ -47,7 +50,7 @@ const listarContenidoNombre = async (req, res) => {
 const listarContenidoGenero = async (req, res) => {
     const { Genero } = req.params
     try {
-        const ContenidoGenero = await contenido.findAll(Genero)
+        const ContenidoGenero = await contenido.findAll({where:{genero:{[Op.like]:`%${Genero}`,}}})
 
         !ContenidoId ? res.status(404).json({ error: 'No se encontro el contenido' })
                      : res.json(ContenidoGenero)
@@ -59,9 +62,9 @@ const listarContenidoGenero = async (req, res) => {
 
 //Lista el contenido por categoria
 const listarContenidoCategoria = async (req, res) => {
-    const { categoria } = req.params
+    const { Categoria } = req.params
     try {
-        const ContenidoCategoria = await contenido.findAll(categoria)
+        const ContenidoCategoria = await contenido.findAll({where:{categoria:{[Op.like]:`%${Categoria}`,}}})
 
         !ContenidoId ? res.status(404).json({ error: 'No se encontro el contenido' })
                      : res.json(ContenidoCategoria)
@@ -131,7 +134,7 @@ const actualizarContenido = async (req, res) => {
     }
 }
 
-const eliminarContenido = async(res, res) =>{
+const eliminarContenido = async(req, res) =>{
     const {id} = req.params
     try{
         const Contenido = await contenido.findByPk(id)

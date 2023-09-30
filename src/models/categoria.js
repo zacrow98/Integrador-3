@@ -8,8 +8,8 @@ const { db } = require("../config/db");
       autoIncrement: true,
       allowNull: false
     },
-    Nombre_categoria: {
-      type: Sequelize.STRING(30),
+    nombre_categoria: {
+      type: Sequelize.STRING(45),
       allowNull: false
     }
   }, { tableName: "categoria", timestamps: false });
