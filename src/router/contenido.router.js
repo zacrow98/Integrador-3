@@ -14,8 +14,8 @@ router.get('/contenido:categoria', contenidoController.listarContenidoCategoria)
 
 router.post('/contenido', contenidoController.crearContenido)
 
-router.put('contenido:id', contenidoController.actualizarContenido)
+router.put('contenido/actualiza/:id', contenidoController.actualizarContenido)
 
-router.delete('contenido:id', contenidoController.eliminarContenido)
+router.delete('contenido/delete/:id', contenidoController.eliminarContenido)
 
 module.exports = router
