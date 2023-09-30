@@ -64,7 +64,7 @@ const actualizarCategoria = async (req, res) => {
 }
 
 
-const eliminarCategoria = async(res, res) =>{
+const eliminarCategoria = async(req, res) =>{
     const {id} = req.params
     try{
         const Categoria = await categoria.findByPk(id)

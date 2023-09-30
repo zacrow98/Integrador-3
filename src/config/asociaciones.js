@@ -11,13 +11,14 @@ const generoTitulo = require('../models/generoTitulo')
 contenido.hasOne(categoria)
 
 
+
 // Configurar la relacion muchos a muchos Actores y Contenido
-Contenido.belongsToMany(actores,{through: reparto, foreingKey:'idTitulo'})
-actores.belongsToMany(contenido, {through: reparto, foreingKey:'idActor'})
+Contenido.belongsToMany(actores,{through: reparto, foreingKey:'idTitulo', otherKey: 'idActor'})
+actores.belongsToMany(contenido, {through: reparto, foreingKey:'idActor', otherKey:'idTitulo'})
 
 // 
-contenido.belongsToMany(genero, {through: generoTitulo, foreingKey: 'idTitulo'})
-genero.belongsToMany(contenido, {through: generoTitulo, foreingKey: 'idGenero'})
+contenido.belongsToMany(genero, {through: generoTitulo, foreingKey: 'idTitulo', otherKey:'idGenero'})
+genero.belongsToMany(contenido, {through: generoTitulo, foreingKey: 'idGenero', otherKey:'idTitulo'})
 
 module.exports = {
     contenido, categoria, actores, reparto, genero, generoTitulo,
