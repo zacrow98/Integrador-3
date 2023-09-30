@@ -1,12 +1,12 @@
-const { Timestamp } = require("mongodb");
-const { Sequelize } = require("sequelize");
 
-const contenido = Sequelize.define('contenido', {
-    contenido_id: {
+const { Sequelize } = require("sequelize");
+const { db } = require("../config/db")
+
+const Contenido = db.define('contenido', {
+    id: {
         type: Sequelize.INTERGER,
         autoincrement: true,
         primaryKey: true,
-        allowNull: true,
     },
     poster:{
         type: Sequelize.STRING,
@@ -14,27 +14,27 @@ const contenido = Sequelize.define('contenido', {
     },
     titulo:{
         type: Sequelize.STRING,
-        allowNull: true,
 
     },
-    categoria_id:{
+    categoria:{
         type: Sequelize.INTERGER,
-        allowNull: true,
-    },
-    genero:{
-        type: Sequelize.INTERGER,
-        allowNull: true,
     },
     resumen:{
+        type: Sequelize.STRING
+    },
+    trailer:{
         type: Sequelize.STRING,
     },
     temporadas:{
         type: Sequelize.INTERGER,
     },
+    reparto:{
+        type: Sequelize.STRING,
+    },
 
     tableName: 'contenido',
-    Timestamp: false,
+    timestamp: false,
     
 })
 
-module.export = contenido
+module.export = Contenido

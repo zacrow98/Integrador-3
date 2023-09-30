@@ -1,14 +1,14 @@
-const { Timestamp } = require("mongodb");
-const { Sequelize } = require("sequelize");
+const {Sequelize} = require("sequelize");
+const { db } = require("../config/db")
 
-const Actores = Sequelize.define('actores', {
-    id: {
+const Actores = db.define('actores', {
+    id_actor: {
         type: Sequelize.INTERGER,
         autoincrement: true,
         primaryKey: true,
-        allowNull: true,
+        allowNull: false,
     },
-    actor_nombre:{
+    nombre_actor:{
         type: Sequelize.STRING,
     },
     tableName: 'actores',

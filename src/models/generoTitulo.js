@@ -1,12 +1,11 @@
-const { Timestamp } = require("mongodb");
 const { Sequelize } = require("sequelize");
+const { db } = require("../config/db")
 
-const genero_titulo = Sequelize.define('genero_titulo', {
+const Genero_titulo = db.define('genero_titulo', {
     id: {
         type: Sequelize.INTERGER,
         autoincrement: true,
         primaryKey: true,
-        allowNull: true,
     },
     idTitulo:{
         type: Sequelize.INTERGER,
@@ -18,4 +17,4 @@ const genero_titulo = Sequelize.define('genero_titulo', {
     Timestamp:false,
 })
 
-module.exports = genero_titulo
+module.exports = Genero_titulo

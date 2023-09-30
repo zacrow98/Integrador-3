@@ -1,0 +1,1 @@
+const {contenido, categoria, actores, reparto, genero, generoTitulo} = require('../config/asociaciones')
