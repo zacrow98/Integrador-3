@@ -29,6 +29,48 @@ const listarContenidoID = async (req, res) => {
     }
 }
 
+//Lista el contenido por Nombre
+const listarContenidoNombre = async (req, res) => {
+    const { titulo } = req.params
+    try {
+        const ContenidoNombre = await contenido.findByPk(titulo)
+
+        !ContenidoId ? res.status(404).json({ error: 'No se encontro el contenido' })
+                     : res.json(ContenidoNombre)
+    } catch (error) {
+        console.error('Error al obtener el contenido', error);
+        res.status(500).json({ Error: 'Error al obtener el contenido' })
+    }
+}
+
+//Lista el contenido por Genero
+const listarContenidoGenero = async (req, res) => {
+    const { Genero } = req.params
+    try {
+        const ContenidoGenero = await contenido.findAll(Genero)
+
+        !ContenidoId ? res.status(404).json({ error: 'No se encontro el contenido' })
+                     : res.json(ContenidoGenero)
+    } catch (error) {
+        console.error('Error al obtener el contenido', error);
+        res.status(500).json({ Error: 'Error al obtener el contenido' })
+    }
+}
+
+//Lista el contenido por categoria
+const listarContenidoCategoria = async (req, res) => {
+    const { categoria } = req.params
+    try {
+        const ContenidoCategoria = await contenido.findAll(categoria)
+
+        !ContenidoId ? res.status(404).json({ error: 'No se encontro el contenido' })
+                     : res.json(ContenidoCategoria)
+    } catch (error) {
+        console.error('Error al obtener el contenido', error);
+        res.status(500).json({ Error: 'Error al obtener el contenido' })
+    }
+}
+
 const crearContenido = async (req, res) => {
     const { 
         poster,
@@ -109,6 +151,9 @@ const eliminarContenido = async(res, res) =>{
 module.exports = {
     listarContenido,
     listarContenidoID,
+    listarContenidoNombre,
+    listarContenidoGenero,
+    listarContenidoCategoria,
     crearContenido,
     actualizarContenido,
     eliminarContenido

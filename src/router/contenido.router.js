@@ -6,6 +6,12 @@ router.get('/contenido', contenidoController.listarContenido)
 
 router.get('/contenido:id', contenidoController.listarContenidoID)
 
+router.get('/contenido:nombre', contenidoController.listarContenidoNombre)
+
+router.get('/contenido:genero', contenidoController.listarContenidoGenero)
+
+router.get('/contenido:categoria', contenidoController.listarContenidoCategoria)
+
 router.post('/contenido', contenidoController.crearContenido)
 
 router.put('contenido:id', contenidoController.actualizarContenido)
